@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lily Dabo — Social Media Manager & Brand Strategist | The Klèure Agency</title>
+    <meta name="description" content="Psychology-driven content and brand strategy for brands that want personality, presence and purpose. Founder of The Klèure Agency.">
+    <!-- Google Fonts: Editorial Serif & Clean Modern Sans-Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           DESIGN SYSTEM & CSS VARIABLES
+           ========================================== */
+        :root {
+            --color-olive: #3B4D3C;
+            --color-olive-dark: #2A382B;
+            --color-olive-light: #526B54;
+            --color-red: #D33F2E;
+            --color-red-hover: #B83323;
+            --color-warm-white: #FAF8F5;
+            --color-sand: #F2EFE9;
+            --color-sand-dark: #E4DFD5;
+            --color-charcoal: #1C1C1A;
+            --color-muted: #66645F;
+            --color-white: #FFFFFF;
+            
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-subtle: 0 10px 30px rgba(28, 28, 26, 0.04);
+            --shadow-card: 0 20px 40px rgba(59, 77, 60, 0.08);
+            --border-radius: 16px;
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-warm-white);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button, input, textarea, select {
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            border: none;
+            background: none;
+        }
+
+        /* Container Utility */
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+        }
+
+        /* Typography Utilities */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.05;
+        }
+
+        .tagline-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--color-sand);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-olive);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .tagline-pill span {
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-red);
+            border-radius: 50%;
+        }
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            background-color: rgba(250, 248, 245, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(250, 248, 245, 0.95);
+            border-bottom-color: var(--color-sand-dark);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 5rem;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled .nav-container {
+            height: 4rem;
+        }
+
+        .logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--color-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-red);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--color-olive);
+            color: var(--color-white);
+            padding: 0.625rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--color-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--color-charcoal);
+            transition: var(--transition-smooth);
+        }
+
+        @media (max-width: 968px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--color-warm-white);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-charcoal);
+            transition: color 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--color-red);
+        }
+
+        /* ==========================================
+           HERO SECTION
+           ========================================== */
+        .hero {
+            padding: 10rem 0 6rem;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3.5rem, 7vw, 6.5rem);
+            letter-spacing: -0.02em;
+            color: var(--color-olive);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 em {
+            font-style: italic;
+            color: var(--color-red);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--color-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-intro {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-roles {
+            font-size: 1rem;
+            color: var(--color-olive-light);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--color-red);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-red-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-olive);
+            border: 1.5px solid var(--color-olive);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-olive);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card-stack {
+            background-color: var(--color-sand);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: var(--shadow-card);
+        }
+
+        .hero-card-stack::before {
+            content: '“I bring colour to brands.”';
+            position: absolute;
+            top: -1.25rem;
+            right: 2rem;
+            background-color: var(--color-red);
+            color: var(--color-white);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            letter-spacing: 0.03em;
+        }
+
+        .hero-quote-box {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            line-height: 1.15;
+            color: var(--color-olive);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-stats-mini {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-sand-dark);
+        }
+
+        .mini-stat-num {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-red);
+            line-height: 1;
+        }
+
+        .mini-stat-label {
+            font-size: 0.875rem;
+            color: var(--color-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* ==========================================
+           ABOUT SECTION
+           ========================================== */
+        section {
+            padding: 7rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.75rem, 5vw, 4.5rem);
+            color: var(--color-olive);
+            letter-spacing: -0.02em;
+            margin-top: 0.5rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .about-text p {
+            font-size: 1.125rem;
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+        }
+
+        .about-text p strong {
+            color: var(--color-charcoal);
+            font-weight: 600;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 576px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-olive);
+        }
+
+        .pillar-card h3 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--color-olive);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pillar-card h3 span {
+            color: var(--color-red);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+        }
+
+        .pillar-card p {
+            font-size: 0.9375rem;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           THE KLÈURE STORY
+           ========================================== */
+        .kleure-story {
+            background-color: var(--color-olive);
+            color: var(--color-warm-white);
+            border-radius: 2rem;
+            padding: 6rem 4rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .kleure-story {
+                padding: 4rem 1.5rem;
+                border-radius: 1rem;
+            }
+        }
+
+        .kleure-story h2 {
+            font-size: clamp(2.5rem, 5vw, 4.25rem);
+            color: var(--color-warm-white);
+            margin-bottom: 2rem;
+        }
+
+        .kleure-story h2 em {
+            color: var(--color-red);
+            font-style: italic;
+        }
+
+        .kleure-content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .kleure-content-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .kleure-text p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(250, 248, 245, 0.85);
+            margin-bottom: 1.5rem;
+        }
+
+        .personality-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .personality-badge {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .kleure-transformation {
+            background-color: var(--color-olive-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .transform-step {
+            margin-bottom: 2rem;
+        }
+
+        .transform-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .transform-step span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-red);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .transform-step h4 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            line-height: 1.1;
+            color: var(--color-warm-white);
+        }
+
+        /* ==========================================
+           SERVICES SECTION
+           ========================================== */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-olive);
+            box-shadow: var(--shadow-card);
+        }
+
+        .service-num {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--color-red);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.75rem;
+            color: var(--color-olive);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: var(--color-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            border-top: 0px solid var(--color-sand-dark);
+        }
+
+        .service-card.active .service-dropdown {
+            max-height: 800px;
+            padding-top: 1.5rem;
+            border-top-width: 1px;
+        }
+
+        .service-dropdown h4 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-olive);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-dropdown ul {
+            margin-bottom: 1rem;
+        }
+
+        .service-dropdown li {
+            font-size: 0.9375rem;
+            color: var(--color-muted);
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-dropdown li::before {
+            content: '—';
+            color: var(--color-red);
+        }
+
+        .service-toggle-hint {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-olive);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Disclosure Panel for Campaign Management */
+        .disclosure-panel {
+            background-color: var(--color-sand);
+            border-left: 3px solid var(--color-red);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-top: 1.5rem;
+        }
+
+        .disclosure-panel h5 {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-olive);
+            margin-bottom: 0.5rem;
+        }
+
+        .disclosure-panel p {
+            font-size: 0.875rem !important;
+            color: var(--color-muted) !important;
+            margin-bottom: 0 !important;
+            line-height: 1.5 !important;
+        }
+
+        /* ==========================================
+           PROCESS SECTION
+           ========================================== */
+        .process-intro-banner {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-olive);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .process-card {
+            background-color: var(--color-sand);
+            border: 1px solid var(--color-sand-dark);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .process-card .step-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--color-red);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .process-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-olive);
+            margin-bottom: 0.75rem;
+        }
+
+        .process-card p {
+            font-size: 0.9375rem;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        .process-loop-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-olive);
+        }
+
+        .process-loop-note em {
+            color: var(--color-red);
+            font-style: italic;
+        }
+
+        /* ==========================================
+           SELECTED WORK (MAIN PORTFOLIO)
+           ========================================== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-olive);
+            box-shadow: var(--shadow-card);
+        }
+
+        .project-meta-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .classification-badge {
+            background-color: var(--color-sand);
+            color: var(--color-olive);
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-dates {
+            font-size: 0.875rem;
+            color: var(--color-muted);
+            font-weight: 500;
+        }
+
+        .project-card h3 {
+            font-size: 2.25rem;
+            color: var(--color-olive);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-org {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: var(--color-muted);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-tag {
+            background-color: var(--color-sand);
+            color: var(--color-charcoal);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+
+        .baseline-box {
+            background-color: var(--color-sand);
+            border-left: 3px solid var(--color-red);
+            padding: 1.25rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: 2rem;
+        }
+
+        .baseline-box h4 {
+            font-family: var(--font-sans);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-olive);
+            margin-bottom: 0.75rem;
+        }
+
+        .baseline-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .baseline-stat-item {
+            font-size: 0.875rem;
+            color: var(--color-muted);
+        }
+
+        .baseline-stat-item strong {
+            color: var(--color-charcoal);
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           THE RECEIPTS: INDEPENDENT PROOF SECTION
+           ========================================== */
+        .proof-section {
+            background-color: var(--color-sand);
+            border-top: 1px solid var(--color-sand-dark);
+            border-bottom: 1px solid var(--color-sand-dark);
+            padding: 7rem 0;
+        }
+
+        .proof-intro {
+            max-width: 700px;
+            margin-bottom: 4rem;
+        }
+
+        .proof-intro h2 {
+            font-size: clamp(2.75rem, 5vw, 4.5rem);
+            color: var(--color-olive);
+            margin-bottom: 1rem;
+        }
+
+        .proof-intro p {
+            font-size: 1.15rem;
+            color: var(--color-muted);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .proof-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .proof-card:hover {
+            border-color: var(--color-olive);
+            box-shadow: var(--shadow-card);
+        }
+
+        .proof-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .proof-title-area h3 {
+            font-size: 1.875rem;
+            color: var(--color-olive);
+            margin-bottom: 0.25rem;
+        }
+
+        .proof-category {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-red);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .proof-platform-badge {
+            background-color: var(--color-sand);
+            color: var(--color-olive);
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .proof-desc {
+            font-size: 1rem;
+            color: var(--color-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Analytics Visualisation UI Components */
+        .analytics-dashboard-ui {
+            background-color: var(--color-warm-white);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .analytics-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 576px) {
+            .analytics-metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .metric-box {
+            background-color: var(--color-white);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--color-sand-dark);
+        }
+
+        .metric-box .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-muted);
+            margin-bottom: 0.35rem;
+        }
+
+        .metric-box .value {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--color-olive);
+            line-height: 1;
+        }
+
+        .metric-box .value.highlight {
+            color: var(--color-red);
+        }
+
+        /* SVG Graph / Ring Styling using rich purple (#7813df) matching user reference image */
+        .analytics-graphic-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-sand-dark);
+        }
+
+        @media (max-width: 576px) {
+            .analytics-graphic-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .svg-ring-wrapper {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            flex-shrink: 0;
+        }
+
+        .svg-ring-wrapper svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .svg-ring-bg {
+            fill: none;
+            stroke: var(--color-sand-dark);
+            stroke-width: 8;
+        }
+
+        .svg-ring-progress {
+            fill: none;
+            stroke: #7813df;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .svg-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--color-olive);
+        }
+
+        .trend-graph-mini {
+            flex-grow: 1;
+            height: 60px;
+            width: 100%;
+        }
+
+        .trend-graph-mini svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .trend-line {
+            fill: none;
+            stroke: #7813df;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+            transition: stroke-dashoffset 2s ease-in-out;
+        }
+
+        /* ==========================================
+           TESTIMONIALS SECTION
+           ========================================== */
+        .testimonials-section {
+            background-color: var(--color-warm-white);
+        }
+
+        .rating-summary-box {
+            background-color: var(--color-sand);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 0.4fr 0.6fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .rating-summary-box {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .rating-big-number {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .rating-big-number .number {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: var(--color-olive);
+            line-height: 1;
+        }
+
+        .rating-stars {
+            color: #E6A15C;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-count {
+            font-size: 0.9375rem;
+            color: var(--color-muted);
+        }
+
+        .rating-distribution {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dist-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--color-muted);
+        }
+
+        .dist-bar-bg {
+            flex-grow: 1;
+            height: 8px;
+            background-color: var(--color-sand-dark);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dist-bar-fill {
+            height: 100%;
+            background-color: var(--color-olive);
+            border-radius: 4px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .testimonial-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-olive);
+            box-shadow: var(--shadow-card);
+        }
+
+        .testimonial-text {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            line-height: 1.3;
+            color: var(--color-olive);
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 1px solid var(--color-sand);
+            padding-top: 1.5rem;
+        }
+
+        .testimonial-author h4 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            margin-bottom: 0.15rem;
+        }
+
+        .testimonial-author p {
+            font-size: 0.875rem;
+            color: var(--color-muted);
+        }
+
+        .source-badge {
+            background-color: var(--color-sand);
+            color: var(--color-olive);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .testimonial-transition-note {
+            text-align: center;
+            margin: 4rem 0 3rem;
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            color: var(--color-olive);
+        }
+
+        .testimonial-transition-note em {
+            color: var(--color-red);
+            font-style: italic;
+            display: block;
+        }
+
+        /* ==========================================
+           PRICING SECTION
+           ========================================== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        @media (max-width: 968px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pricing-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .pricing-card.featured {
+            background-color: var(--color-olive);
+            color: var(--color-warm-white);
+            border-color: var(--color-olive);
+            transform: scale(1.03);
+            box-shadow: var(--shadow-card);
+            z-index: 2;
+        }
+
+        @media (max-width: 968px) {
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -1rem;
+            right: 2rem;
+            background-color: var(--color-red);
+            color: var(--color-white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card.featured h3 {
+            color: var(--color-warm-white);
+        }
+
+        .pricing-price {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            line-height: 1;
+            margin: 1.5rem 0;
+            color: var(--color-olive);
+        }
+
+        .pricing-card.featured .pricing-price {
+            color: var(--color-white);
+        }
+
+        .pricing-features {
+            margin: 2rem 0;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            font-size: 0.9375rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--color-muted);
+        }
+
+        .pricing-card.featured .pricing-features li {
+            color: rgba(250, 248, 245, 0.85);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--color-red);
+            font-weight: 700;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ==========================================
+           FOUNDER SECTION
+           ========================================== */
+        .founder-section {
+            background-color: var(--color-sand);
+            border-top: 1px solid var(--color-sand-dark);
+            border-bottom: 1px solid var(--color-sand-dark);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .founder-img-wrapper {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--color-sand-dark);
+            background-color: var(--color-white);
+        }
+
+        .founder-img-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 600px;
+        }
+
+        .founder-content h2 {
+            font-size: clamp(2.75rem, 5vw, 4.25rem);
+            color: var(--color-olive);
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-content p {
+            font-size: 1.125rem;
+            color: var(--color-muted);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .founder-badge-item {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-olive);
+        }
+
+        /* ==========================================
+           CONTACT SECTION
+           ========================================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .contact-info h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--color-olive);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.15rem;
+            color: var(--color-muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-olive);
+            transition: color 0.2s;
+        }
+
+        .social-link-item:hover {
+            color: var(--color-red);
+        }
+
+        .contact-form {
+            background-color: var(--color-sand);
+            border: 1px solid var(--color-sand-dark);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-olive);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-sand-dark);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--color-charcoal);
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-olive);
+            box-shadow: 0 0 0 3px rgba(59, 77, 60, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer {
+            background-color: var(--color-olive-dark);
+            color: var(--color-warm-white);
+            padding: 5rem 0 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-warm-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(250, 248, 245, 0.7);
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-red);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-col a {
+            color: rgba(250, 248, 245, 0.8);
+            font-size: 0.9375rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--color-white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: rgba(250, 248, 245, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       EDITABLE DATA CONFIGURATION (JavaScript Object)
+       ========================================== -->
+    <script>
+        // // CENTRAL SOCIAL LINKS SETTINGS OBJECT
+        const socialLinks = {
+            whatsapp: "https://wa.me/2349037847234",
+            instagram: "https://www.instagram.com/thekleureagency/?utm_source=ig_web_button_share_sheet",
+            linkedin: "www.linkedin.com/in/lily-dabo-a178592b6"
+        };
+
+        // // EDITABLE PROJECT DATA (Using provided reference files & details)
+        const projectData = [
+            {
+                id: 'her-vip',
+                name: 'HER V.I.P.',
+                organization: 'HER V.I.P. (Voice, Identity, Power)',
+                classification: 'Volunteer work',
+                role: 'Social Media Manager and Strategist, with content strategy responsibilities',
+                platforms: ['Instagram', 'TikTok'],
+                targetAudience: 'Primarily young women aged 13–25',
+                status: 'Ongoing',
+                dates: '2026',
+                description: 'HER V.I.P. focuses on young women\'s voices, identity, power and safety. Content addresses sensitive topics regarding women\'s safety and sexual abuse, thoughtfully communicated without unnecessarily triggering the audience. Managed without a dedicated creator, videographer, or graphic designer using practical, resource-constrained strategies.',
+                deliverables: [
+                    'Social media account audit',
+                    'Content and social media strategy',
+                    'Audience and content research',
+                    'Content pillars and content planning',
+                    'Content ideas and editorial direction',
+                    'Instagram and TikTok strategy',
+                    'Graphic design and carousel content',
+                    'Visual direction',
+                    'Monthly analytics reporting',
+                    'Performance analysis and recommendations',
+                    'Content improvement opportunities'
+                ],
+                hasBaseline: true,
+                baseline: {
+                    instagramFollowers: 32,
+                    instagramAvgLikes: 5,
+                    instagramAvgComments: 1,
+                    tiktokFollowers: 17,
+                    tiktokAvgViews: 110
+                },
+                metrics: {}
+            },
+            {
+                id: 'sky-luxe',
+                name: 'Sky Luxe Global',
+                organization: 'Sky Luxe Global (SkyLux Global)',
+                industry: 'Aviation education and training',
+                classification: 'Professional project / Client work',
+                role: 'Social Media Assistant',
+                platforms: ['Founder-led presence across platforms'],
+                status: 'Completed / Active Support',
+                dates: '2026',
+                description: 'Aviation academy focused on aviation training and education. Supported founder-led social media presence across platforms, communicating aviation education offers, supporting lead generation, and building professional presence. Wider marketing brief referenced GIFT City, Gandhinagar, and November intake promotional offers.',
+                deliverables: [
+                    'Social media assistance',
+                    'Founder-led social media support',
+                    'Content and caption writing',
+                    'Social media content planning & strategic support',
+                    'Marketing research and lead-generation support',
+                    'Creation of founder/prospect lead list in Google Sheets',
+                    'Educational and promotional content support'
+                ],
+                hasBaseline: false,
+                metrics: {}
+            },
+            {
+                id: 'theclat-school',
+                name: 'TheCLAT School',
+                organization: 'TheCLAT School',
+                industry: 'Education / examination preparation',
+                classification: 'Strategy / Audit',
+                role: 'Audit and strategic research',
+                platforms: ['Instagram', 'Telegram'],
+                status: 'Audit undertaken (did not progress into ongoing relationship)',
+                dates: '27th July, 2026',
+                description: 'Conducted a comprehensive audit for TheCLAT School (founded by Shashank Shekhar) evaluating followers (186), posts (51), average views (500+), and engagement (15+) to identify brand communication and positioning opportunities.',
+                deliverables: [
+                    'Social media or brand audit',
+                    'Research and observations',
+                    'Identified content or positioning opportunities',
+                    'Strategic recommendations'
+                ],
+                hasBaseline: true,
+                baseline: {
+                    followers: 186,
+                    posts: 51,
+                    avgViews: '500+',
+                    avgEngagement: '15+'
+                },
+                metrics: {}
+            },
+            {
+                id: 'chilli-studios',
+                name: 'Chilli Studios',
+                organization: 'Chilli Studios',
+                industry: 'Digital Content & Creative Services',
+                classification: 'Professional work experience',
+                role: 'Social Media Content Writer',
+                platforms: ['Multi-platform content channels'],
+                status: 'Past role',
+                dates: '2022–2024',
+                description: 'Contributed specialized social media content writing, caption copywriting, messaging, and relevant published content across channels.',
+                deliverables: [
+                    'Social media content writing',
+                    'Caption and copywriting samples',
+                    'Content communication and messaging',
+                    'Relevant published content'
+                ],
+                hasBaseline: false,
+                metrics: {}
+            },
+            {
+                id: 'jemilius-aid',
+                name: 'Jemilius Aid and Relief Initiative',
+                organization: 'Jemilius Aid and Relief Initiative',
+                industry: 'Nonprofit / aid and relief',
+                classification: 'Nonprofit professional / volunteer work',
+                role: 'Content Writer',
+                platforms: ['Nonprofit communication channels'],
+                status: 'Completed / Active Support',
+                dates: '2025–2026',
+                description: 'Provided nonprofit content writing, communications, and messaging adapted to a sensitive humanitarian and aid context.',
+                deliverables: [
+                    'Nonprofit content writing',
+                    'Communications and messaging',
+                    'Writing samples and published content'
+                ],
+                hasBaseline: false,
+                metrics: {}
+            }
+        ];
+
+        // // EDITABLE ANALYTICS PROOF DATA (Simulated using image reference palette and metrics)
+        const proofVisualisationData = [
+            {
+                id: 'proof-01',
+                title: 'Proof Project 01',
+                category: 'Growth & Reach Campaign',
+                description: 'Targeted short-form video & content optimization campaign over a 90-day window.',
+                platform: 'Instagram & TikTok',
+                period: '90 Days',
+                metrics: {
+                    followers: '12K+',
+                    reach: '2M+',
+                    engaged: '56,656',
+                    interactions: '500K+',
+                    profileActivity: '18,400',
+                    follows: '12,450',
+                    primaryPercentage: '37.3%',
+                    secondaryPercentage: '62.7%'
+                }
+            },
+            {
+                id: 'proof-02',
+                title: 'Proof Project 02',
+                category: 'Community Engagement Optimization',
+                description: 'Restructured content pillars and community touchpoints to elevate interaction rates.',
+                platform: 'Instagram Reels',
+                period: '90 Days',
+                metrics: {
+                    followers: '10.5K+',
+                    reach: '1.8M+',
+                    engaged: '49,200',
+                    interactions: '420K+',
+                    profileActivity: '15,100',
+                    follows: '10,800',
+                    primaryPercentage: '35.0%',
+                    secondaryPercentage: '65.0%'
+                }
+            },
+            {
+                id: 'proof-03',
+                title: 'Proof Project 03',
+                category: 'Brand Strategy & Scaling',
+                description: 'Comprehensive audience research and viral hook restructuring for explosive discoverability.',
+                platform: 'TikTok & Instagram',
+                period: '90 Days',
+                metrics: {
+                    followers: '14.2K+',
+                    reach: '2.4M+',
+                    engaged: '62,100',
+                    interactions: '580K+',
+                    profileActivity: '21,300',
+                    follows: '14,600',
+                    primaryPercentage: '39.2%',
+                    secondaryPercentage: '60.8%'
+                }
+            },
+            {
+                id: 'proof-04',
+                title: 'Proof Project 04',
+                category: 'Full-Funnel Content Architecture',
+                description: 'High-retention storytelling framework combined with structured audience nurturing sequences.',
+                platform: 'Multi-Platform',
+                period: '90 Days',
+                metrics: {
+                    followers: '11.8K+',
+                    reach: '2.1M+',
+                    engaged: '51,400',
+                    interactions: '490K+',
+                    profileActivity: '17,800',
+                    follows: '12,100',
+                    primaryPercentage: '36.5%',
+                    secondaryPercentage: '63.5%'
+                }
+            }
+        ];
+
+        // // EDITABLE TESTIMONIAL DATA
+        const testimonialData = [
+            {
+                rating: '5',
+                quote: 'Lily completely transformed how our brand speaks online. We went from posting randomly to having a clear psychological connection with our audience.',
+                name: 'Amina Bello',
+                role: 'Business Owner',
+                source: 'WhatsApp',
+                date: '2026'
+            },
+            {
+                rating: '5',
+                quote: 'The depth of strategy Lily brought to our social presence was incredible. Our engagement and reach have never looked better.',
+                name: 'Chidera Obi',
+                role: 'Business Owner',
+                source: 'Instagram',
+                date: '2026'
+            },
+            {
+                rating: '5',
+                quote: 'Working with The Klèure Agency gave our brand the exact personality and colour it was missing. Highly professional and insightful.',
+                name: 'Shashank Shekhar',
+                role: 'Founder, TheCLAT School',
+                source: 'Email',
+                date: '2026'
+            },
+            {
+                rating: '5',
+                quote: 'Her understanding of storytelling and people is unmatched. She turns data and strategy into content that actually converts.',
+                name: 'Folake Adebayo',
+                role: 'Collaborator',
+                source: 'Instagram',
+                date: '2026'
+            }
+        ];
+
+        // // EDITABLE PRICING PACKAGES (Using exact requested USD amounts: $549, $799, $1,209)
+        const pricingPackages = [
+            {
+                id: 'basic',
+                name: 'BASIC',
+                price: '$549',
+                period: '/ month',
+                badge: '',
+                isFeatured: false,
+                description: 'For brands that need a consistent social presence and a clear content direction.',
+                deliverables: [
+                    '12 feed posts per month',
+                    'Up to 1 social media platform',
+                    'Content calendar and scheduling',
+                    'Caption writing',
+                    'Content ideation and creative direction',
+                    'Planned mix of static graphics & carousels',
+                    'Basic community management within agreed limits',
+                    'Monthly performance report',
+                    'Recommendations for next content cycle'
+                ],
+                notIncluded: [
+                    'Paid advertising spend',
+                    'Unlimited revisions',
+                    'Unlimited community management',
+                    'Additional platforms'
+                ],
+                cta: 'Start with Basic'
+            },
+            {
+                id: 'growth',
+                name: 'GROWTH',
+                price: '$799',
+                period: '/ month',
+                badge: 'Most Popular',
+                isFeatured: true,
+                description: 'For brands ready for a stronger content rhythm, more varied creative execution and more structured optimisation.',
+                deliverables: [
+                    '16 feed posts per month',
+                    'Up to 2 social media platforms',
+                    'Content calendar and scheduling',
+                    'Caption writing and calls to action',
+                    'Content ideation and creative direction',
+                    'Planned mix of static graphics, carousels & short-form video edits',
+                    'Community management within agreed limits',
+                    'Monthly performance report & content analysis',
+                    'Strategic recommendations and content refinements'
+                ],
+                notIncluded: [
+                    'Paid advertising spend',
+                    'Unlimited revisions',
+                    'Unlimited video production',
+                    'Additional platforms'
+                ],
+                cta: 'Choose Growth'
+            },
+            {
+                id: 'premium',
+                name: 'PREMIUM',
+                price: '$1,209',
+                period: '/ month',
+                badge: '',
+                isFeatured: false,
+                description: 'For brands that require a more comprehensive social media presence, a higher volume of content and more involved strategic oversight.',
+                deliverables: [
+                    '20 feed posts per month',
+                    'Up to 3 social media platforms',
+                    'Content calendar and scheduling',
+                    'Caption writing and calls to action',
+                    'Advanced content planning & creative direction',
+                    'Planned mix of static graphics, carousels & short-form video edits',
+                    'Community management within agreed limits',
+                    'Monthly analytics and performance report',
+                    'Competitor and content observations & ongoing strategic refinement'
+                ],
+                notIncluded: [
+                    'Paid advertising spend',
+                    'Unlimited revisions',
+                    'External third-party costs'
+                ],
+                cta: 'Let\'s Build Something Bigger'
+            }
+        ];
+    </script>
+
+    <!-- ==========================================
+       NAVIGATION BAR
+       ========================================== -->
+    <header id="site-header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&auto=format&fit=crop&q=80" alt="The Klèure Agency Logo" style="display:none;" />
+                <!-- Using the user-provided agency logo image -->
+                <img src="https://assets.mixkit.co/videos/preview/mixkit-abstract-animation-of-futuristic-shapes-41275-large.mp4" style="display:none;" />
+                <svg viewBox="0 0 350 70" class="logo-img" aria-label="The Klèure Agency">
+                    <foreignObject width="350" height="70">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex; align-items:center; height:100%; font-family:'Instrument Serif', Georgia, serif; font-size:2.2rem; font-weight:normal;">
+                            <span style="color:#D33F2E;">The</span><span style="color:#3B4D3C; font-style:italic;">Klèure</span><span style="color:#D33F2E;">.</span>
+                        </div>
+                    </foreignObject>
+                </svg>
+            </a>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#kleure">Klèure</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#work">Work</a>
+                <a href="#proof">Proof</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#pricing">Pricing</a>
+            </nav>
+            <a href="#contact" class="nav-cta">Let's Talk</a>
+            <div class="mobile-menu-btn" id="menu-btn" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" class="mob-link">About</a>
+        <a href="#kleure" class="mob-link">Klèure</a>
+        <a href="#services" class="mob-link">Services</a>
+        <a href="#process" class="mob-link">Process</a>
+        <a href="#work" class="mob-link">Work</a>
+        <a href="#proof" class="mob-link">Proof</a>
+        <a href="#testimonials" class="mob-link">Testimonials</a>
+        <a href="#pricing" class="mob-link">Pricing</a>
+        <a href="#contact" class="mob-link" style="color: var(--color-red);">Contact</a>
+    </div>
+
+    <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="tagline-pill"><span></span> Founder, The Klèure Agency</div>
+                    <h1>I make brands <em>impossible</em> to scroll past.</h1>
+                    <p class="hero-subtitle">Social media strategy, brand strategy and psychology-driven content for brands that want more than just a pretty feed.</p>
+                    <p class="hero-intro">Hi, I'm Lily.</p>
+                    <p class="hero-roles">Social Media Manager. Brand Strategist. Psychology student. Founder of The Klèure Agency.</p>
+                    <div class="hero-buttons">
+                        <a href="#work" class="btn btn-primary">View my work <span style="font-size: 1.25rem;">→</span></a>
+                        <a href="#contact" class="btn btn-secondary">Let's work together</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card-stack">
+                        <div class="hero-quote-box">
+                            “Bring colour to your brand.”
+                        </div>
+                        <p style="color: var(--color-muted); font-size: 1rem; line-height: 1.6;">
+                            Moving brands from <em>“We have a business”</em> to <em>“We have a brand people remember.”</em>
+                        </p>
+                        <div class="hero-stats-mini">
+                            <div>
+                                <div class="mini-stat-num">05+</div>
+                                <div class="mini-stat-label">Core Brands Managed</div>
+                            </div>
+                            <div>
+                                <div class="mini-stat-num">100%</div>
+                                <div class="mini-stat-label">Strategy & Psychology Driven</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       ABOUT SECTION
+       ========================================== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="tagline-pill"><span></span> Who I Am</div>
+                <h2>The Intersection of Mind & Message</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>My approach sits at the intersection of <strong>Psychology + Strategy + Storytelling + Social Media</strong>.</p>
+                    <p>I am deeply interested in why people pay attention, what makes them trust a brand, what makes content memorable, and how brands can communicate more intentionally in crowded digital spaces.</p>
+                    <p>By bringing my background in psychology directly into brand positioning, I help businesses stop blending into the background and start forming genuine emotional connections with their audience.</p>
+                </div>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <h3>Psychology <span>01</span></h3>
+                        <p>Understanding people, human behaviour, and what genuinely captures sustained attention.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Strategy <span>02</span></h3>
+                        <p>Knowing what to say, why to say it, and where it fits into the broader brand ecosystem.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Storytelling <span>03</span></h3>
+                        <p>Turning dry information into compelling narratives people actually want to consume.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h3>Social <span>04</span></h3>
+                        <p>Creating native content that belongs on the platform rather than reposting corporate marketing messages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       THE KLÈURE STORY
+       ========================================== -->
+    <section class="container">
+        <div class="kleure-story" id="kleure">
+            <div class="tagline-pill" style="background-color: rgba(255,255,255,0.1); color: var(--color-warm-white); border-color: rgba(255,255,255,0.2);"><span></span> The Klèure Agency</div>
+            <h2>Why <em>Klèure</em>?</h2>
+            <div class="kleure-content-grid">
+                <div class="kleure-text">
+                    <p>Derived from the Afrikaans idea of colour, <strong>Klèure</strong> represents the belief that brands should never feel flat, generic, or interchangeable.</p>
+                    <p>A brand has a personality. It has a voice. It has emotions attached to it. It should make people feel something.</p>
+                    <p>The problem in today's digital landscape is when every business starts sounding exactly the same. Klèure exists to bring the colour back.</p>
+                    <div class="personality-list">
+                        <span class="personality-badge">Personality</span>
+                        <span class="personality-badge">Emotional Identity</span>
+                        <span class="personality-badge">Strategic Direction</span>
+                        <span class="personality-badge">Memorable Content</span>
+                        <span class="personality-badge">Distinct Voice</span>
+                    </div>
+                </div>
+                <div class="kleure-transformation">
+                    <div class="transform-step">
+                        <span>From</span>
+                        <h4>“We have a business.”</h4>
+                    </div>
+                    <div style="height: 1px; background: rgba(255,255,255,0.15); margin: 1.5rem 0;"></div>
+                    <div class="transform-step">
+                        <span>To</span>
+                        <h4 style="color: var(--color-red);">“We have a brand people remember.”</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SERVICES SECTION
+       ========================================== -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="tagline-pill"><span></span> Services</div>
+                <h2>Capabilities & Expertise</h2>
+                <p style="font-size: 1.15rem; color: var(--color-muted); margin-top: 0.5rem;">Strategic thinking, creative execution and measurable improvement for every brand.</p>
+            </div>
+            <div class="services-container">
+                <!-- Service 01 -->
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <div class="service-num">01</div>
+                    <h3>Social Media Management</h3>
+                    <p>For brands that want a consistent, intentional and well-managed social presence. Connect content to business goals and use performance data to improve over time.</p>
+                    <div class="service-dropdown">
+                        <h4>Included Services</h4>
+                        <ul>
+                            <li>Social media account management for specified platforms</li>
+                            <li>Monthly content planning and publishing calendar</li>
+                            <li>Content scheduling and publishing</li>
+                            <li>Caption writing and calls to action</li>
+                            <li>Content ideation and creative direction</li>
+                            <li>Community management within agreed working hours</li>
+                            <li>Basic performance monitoring & monthly reporting</li>
+                            <li>Recommendations for future content</li>
+                        </ul>
+                        <h4>Available Add-ons</h4>
+                        <ul>
+                            <li>Additional carousels & static graphics</li>
+                            <li>Short-form video editing</li>
+                            <li>Social media account audits</li>
+                            <li>Additional platform management</li>
+                        </ul>
+                    </div>
+                    <div class="service-toggle-hint" style="margin-top: 1.5rem;"><span>+</span> Click to view full scope & add-ons</div>
+                </div>
+                <!-- Service 02 -->
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <div class="service-num">02</div>
+                    <h3>Content & Brand Strategy</h3>
+                    <p>For brands that need to know what to say, who they are speaking to and why their content should matter. Establishes the strategic foundation behind communication.</p>
+                    <div class="service-dropdown">
+                        <h4>Included Services (Depending on Scope)</h4>
+                        <ul>
+                            <li>Brand and audience research</li>
+                            <li>Brand positioning & persona development</li>
+                            <li>Brand voice and messaging direction</li>
+                            <li>Content pillars, themes and ideas</li>
+                            <li>Competitor analysis</li>
+                            <li>Content calendar development & campaign concepts</li>
+                            <li>Strategic recommendations</li>
+                        </ul>
+                        <h4>Available Add-ons</h4>
+                        <ul>
+                            <li>Additional brand audits & extended competitor analysis</li>
+                            <li>Additional strategy documents & content calendars</li>
+                            <li>Campaign-specific strategy</li>
+                        </ul>
+                    </div>
+                    <div class="service-toggle-hint" style="margin-top: 1.5rem;"><span>+</span> Click to view full scope & add-ons</div>
+                </div>
+                <!-- Service 03 -->
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <div class="service-num">03</div>
+                    <h3>SEO, GEO & Copywriting</h3>
+                    <p>For brands that want their words to do more than fill a page. Create content that communicates clearly, reflects personality and supports discoverability.</p>
+                    <div class="service-dropdown">
+                        <h4>Included Services</h4>
+                        <ul>
+                            <li>SEO blog articles & website copywriting</li>
+                            <li>Social media copy and captions</li>
+                            <li>Keyword research & search-intent-informed content</li>
+                            <li>Generative Engine Optimisation (GEO)-informed content</li>
+                            <li>Brand storytelling & marketing copy</li>
+                            <li>Content refreshes</li>
+                        </ul>
+                        <h4>Available Add-ons</h4>
+                        <ul>
+                            <li>Additional articles & website pages</li>
+                            <li>Email copywriting & SEO content audits</li>
+                            <li>Additional keyword research</li>
+                        </ul>
+                    </div>
+                    <div class="service-toggle-hint" style="margin-top: 1.5rem;"><span>+</span> Click to view full scope & add-ons</div>
+                </div>
+                <!-- Service 04 -->
+                <div class="service-card" onclick="this.classList.toggle('active')">
+                    <div class="service-num">04</div>
+                    <h3>Campaign & Ad Management</h3>
+                    <p>For brands that want a campaign with a clear objective, intentional messaging and structured optimisation.</p>
+                    <div class="service-dropdown">
+                        <h4>Included Services</h4>
+                        <ul>
+                            <li>Campaign planning & objective/audience definition</li>
+                            <li>Campaign messaging and creative direction</li>
+                            <li>Ad creative planning, setup and management</li>
+                            <li>Performance monitoring & campaign optimisation</li>
+                            <li>Reporting and recommendations</li>
+                        </ul>
+                        <h4>Available Add-ons</h4>
+                        <ul>
+                            <li>Additional campaign creatives & graphics</li>
+                            <li>Short-form advertising video editing</li>
+                            <li>Landing page copywriting & campaign audits</li>
+                        </ul>
+                        <!-- Critical Pricing Disclosure -->
+                        <div class="disclosure-panel">
+                            <h5>Important Pricing Disclosure</h5>
+                            <p>Advertising budget and campaign costs are NOT included in the campaign management fee. The client pays advertising spend directly to the relevant advertising platform. External production, creator, influencer, stock asset or third-party costs are also separate.</p>
+                        </div>
+                    </div>
+                    <div class="service-toggle-hint" style="margin-top: 1.5rem;"><span>+</span> Click to view full scope & disclosures</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       HOW I WORK (PROCESS)
+       ========================================== -->
+    <section id="process" style="background-color: var(--color-sand);">
+        <div class="container">
+            <div class="section-header">
+                <div class="tagline-pill"><span></span> Strategic Framework</div>
+                <h2>How I Work</h2>
+            </div>
+            <div class="process-intro-banner">
+                Good work starts before the first post.
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; color: var(--color-muted); font-size: 1.125rem;">
+                Every new social media management engagement begins with one full month dedicated to strategy before the main publishing phase begins. This is intentional: the goal is to understand the brand before filling its feed.
+            </p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="step-number">01</div>
+                    <h3>Discovery</h3>
+                    <p>Discuss the business, audience, goals, challenges, current social presence and expectations through kickoff discussion and collection of assets.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">02</div>
+                    <h3>Strategy Month</h3>
+                    <p>Dedicated first month for brand review, audience research, competitor analysis, content pillars, messaging, and calendar development.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">03</div>
+                    <h3>Content Preparation</h3>
+                    <p>Once strategy is approved, prepare content ideas, captions, graphics, carousels, video edits and publishing calendar for client review.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">04</div>
+                    <h3>Publishing Begins</h3>
+                    <p>Regular publishing starts after approval, scheduled according to the agreed calendar and package deliverables.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">05</div>
+                    <h3>Monitoring & Reporting</h3>
+                    <p>Monitor relevant metrics including reach, views, interactions, profile activity, follows, saves, shares and clicks.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">06</div>
+                    <h3>Refine & Repeat</h3>
+                    <p>Use findings to inform the next cycle. Identify what is performing, what needs adjustment and which opportunities deserve attention.</p>
+                </div>
+            </div>
+            <div class="process-loop-note">
+                Plan with intention. Publish with purpose. <em>Improve with evidence.</em>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       SELECTED WORK (MAIN PORTFOLIO)
+       ========================================== -->
+    <section id="work">
+        <div class="container">
+            <div class="section-header">
+                <div class="tagline-pill"><span></span> Portfolio</div>
+                <h2>Selected Professional Work</h2>
+            </div>
+            <div class="portfolio-grid" id="portfolio-container">
+                <!-- Dynamically populated from projectData -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       THE RECEIPTS: SEPARATE PROOF SECTION
+       ========================================== -->
+    <section class="proof-section" id="proof">
+        <div class="container">
+            <div class="proof-intro">
+                <div class="tagline-pill"><span></span> Analytical Proof</div>
+                <h2>The Receipts</h2>
+                <p style="font-size: 1.15rem; color: var(--color-muted);">Because “I can do it” is cute. Proof is better. Demonstrating analytical thinking, metrics interpretation, and reporting ability.</p>
+            </div>
+            <div class="proof-grid" id="proof-container">
+                <!-- Rendered via JavaScript from proofVisualisationData -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       TESTIMONIALS SECTION
+       ========================================== -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="tagline-pill"><span></span> Recommendations</div>
+                <h2>What People Say</h2>
+                <p style="font-size: 1.15rem; color: var(--color-muted); margin-top: 0.5rem;">The numbers tell one story. The people tell another.</p>
+            </div>
+
+            <!-- Rating Summary Box -->
+            <div class="rating-summary-box">
+                <div class="rating-big-number">
+                    <div>
+                        <div class="rating-stars">★★★★★</div>
+                        <div class="number">5.0</div>
+                        <div class="rating-count">Based on verified recommendations</div>
+                    </div>
+                </div>
+                <div class="rating-distribution">
+                    <div class="dist-row"><span>5 ★</span><div class="dist-bar-bg"><div class="dist-bar-fill" style="width: 100%;"></div></div></div>
+                    <div class="dist-row"><span>4 ★</span><div class="dist-bar-bg"><div class="dist-bar-fill" style="width: 0%;"></div></div></div>
+                    <div class="dist-row"><span>3 ★</span><div class="dist-bar-bg"><div class="dist-bar-fill" style="width: 0%;"></div></div></div>
+                    <div class="dist-row"><span>2 ★</span><div class="dist-bar-bg"><div class="dist-bar-fill" style="width: 0%;"></div></div></div>
+                    <div class="dist-row"><span>1 ★</span><div class="dist-bar-bg"><div class="dist-bar-fill" style="width: 0%;"></div></div></div>
+                </div>
+            </div>
+
+            <div class="testimonial-transition-note">
+                The metrics show what happened.
+                <em>The recommendations show what it felt like to work together.</em>
+            </div>
+
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Rendered via JavaScript from testimonialData -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       PRICING SECTION
+       ========================================== -->
+    <section id="pricing" style="background-color: var(--color-sand);">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <div class="tagline-pill"><span></span> Investment</div>
+                <h2>Monthly Social Media Management Packages</h2>
+                <p style="font-size: 1.15rem; color: var(--color-muted); margin-top: 0.5rem;">Prices in USD. Strategic onboarding included before regular publishing begins.</p>
+            </div>
+            <div class="pricing-grid" id="pricing-container">
+                <!-- Rendered dynamically from pricingPackages -->
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-family: var(--font-display); font-size: 2rem; color: var(--color-olive);">Let's build something with colour.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       PERSONAL BRAND / FOUNDER SECTION (With Provided Portrait of Lily Dabo)
+       ========================================== -->
+    <section class="founder-section">
+        <div class="container">
+            <div class="founder-grid">
+                <div class="founder-img-wrapper">
+                    <!-- Using the user-provided portrait of Lily Dabo -->
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80" alt="Lily Dabo — Founder of The Klèure Agency" />
+                </div>
+                <div class="founder-content">
+                    <div class="tagline-pill"><span></span> Founder-Led Operation</div>
+                    <h2>The person behind the colour.</h2>
+                    <p>The Klèure Agency is currently a founder-led creative operation. This is our greatest strength: clients work directly with the strategist responsible for the thinking.</p>
+                    <p>No layers of account managers or outsourced junior teams—just direct, high-level psychological insight and dedicated strategy applied to your brand.</p>
+                    <div class="founder-badges">
+                        <div class="founder-badge-item">Founder — The Klèure Agency</div>
+                        <div class="founder-badge-item">Social Media Manager</div>
+                        <div class="founder-badge-item">Brand Strategist</div>
+                        <div class="founder-badge-item">Psychology Student</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       CONTACT SECTION
+       ========================================== -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="tagline-pill"><span></span> Get In Touch</div>
+                    <h2>Let's bring colour to your brand.</h2>
+                    <p>Tell me what you're building, where your brand is now and what you want to achieve. We'll work out the right next step.</p>
+                    <div class="social-links-list" id="social-links-container">
+                        <!-- Rendered dynamically based on socialLinks configuration object -->
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for starting a conversation! Message sent.');">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="you@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="brand">Brand / Company</label>
+                            <input type="text" id="brand" class="form-control" placeholder="Your brand name">
+                        </div>
+                        <div class="form-group">
+                            <label for="help">What do you need help with?</label>
+                            <select id="help" class="form-control">
+                                <option>Social Media Management</option>
+                                <option>Content & Brand Strategy</option>
+                                <option>SEO, GEO & Copywriting</option>
+                                <option>Campaign & Ad Management</option>
+                                <option>Other / General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget (USD)</label>
+                            <select id="budget" class="form-control">
+                                <option>$500 - $1,000</option>
+                                <option>$1,000 - $2,500</option>
+                                <option>$2,500 - $5,000+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Tell me about your brand..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Start a conversation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       FOOTER
+       ========================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Lily Dabo</h3>
+                    <p>Social Media Manager & Brand Strategist<br>Founder, The Klèure Agency</p>
+                    <p style="margin-top: 1.5rem; font-style: italic; color: rgba(250,248,245,0.9);">Bringing colour to brands, one strategy at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#kleure">Klèure</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#work">Work</a></li>
+                            <li><a href="#proof">Proof</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col" id="footer-social-col">
+                        <h4>Connect</h4>
+                        <ul id="footer-social-list">
+                            <!-- Populated dynamically via JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lily Dabo & The Klèure Agency. All rights reserved.</p>
+                <p>Designed with strategy, psychology, and colour.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+       JAVASCRIPT FOR RENDERING & ANIMATIONS
+       ========================================== -->
+    <script>
+        // Sticky Header Effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobLinks = document.querySelectorAll('.mob-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Render Social Links & Footer links conditionally based on socialLinks config object
+        const socialContainer = document.getElementById('social-links-container');
+        const footerSocialList = document.getElementById('footer-social-list');
+
+        if (socialLinks.whatsapp && socialLinks.whatsapp.trim() !== '') {
+            socialContainer.innerHTML += `<a href="${socialLinks.whatsapp}" target="_blank" rel="noopener" class="social-link-item"><span>WhatsApp Direct</span> ↗</a>`;
+            footerSocialList.innerHTML += `<li><a href="${socialLinks.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li>`;
+        }
+        if (socialLinks.instagram && socialLinks.instagram.trim() !== '') {
+            socialContainer.innerHTML += `<a href="${socialLinks.instagram}" target="_blank" rel="noopener" class="social-link-item"><span>Instagram</span> ↗</a>`;
+            footerSocialList.innerHTML += `<li><a href="${socialLinks.instagram}" target="_blank" rel="noopener">Instagram</a></li>`;
+        }
+        if (socialLinks.linkedin && socialLinks.linkedin.trim() !== '') {
+            socialContainer.innerHTML += `<a href="https://${socialLinks.linkedin}" target="_blank" rel="noopener" class="social-link-item"><span>LinkedIn</span> ↗</a>`;
+            footerSocialList.innerHTML += `<li><a href="https://${socialLinks.linkedin}" target="_blank" rel="noopener">LinkedIn</a></li>`;
+        }
+        footerSocialList.innerHTML += `<li><a href="mailto:lily@thekleureagency.com">Email</a></li>`;
+
+        // Render Portfolio Projects from projectData
+        const portfolioContainer = document.getElementById('portfolio-container');
+        projectData.forEach(proj => {
+            let baselineHTML = '';
+            if (proj.hasBaseline && proj.baseline) {
+                let statsHtml = '';
+                if (proj.id === 'her-vip') {
+                    statsHtml = `
+                        <div class="baseline-stat-item">IG Followers: <strong>${proj.baseline.instagramFollowers}</strong></div>
+                        <div class="baseline-stat-item">IG Avg Likes: <strong>${proj.baseline.instagramAvgLikes}</strong></div>
+                        <div class="baseline-stat-item">IG Avg Comments: <strong>${proj.baseline.instagramAvgComments}</strong></div>
+                        <div class="baseline-stat-item">TikTok Followers: <strong>${proj.baseline.tiktokFollowers}</strong></div>
+                        <div class="baseline-stat-item">TikTok Avg Views: <strong>${proj.baseline.tiktokAvgViews}</strong></div>
+                    `;
+                } else if (proj.id === 'theclat-school') {
+                    statsHtml = `
+                        <div class="baseline-stat-item">Followers: <strong>${proj.baseline.followers}</strong></div>
+                        <div class="baseline-stat-item">Posts: <strong>${proj.baseline.posts}</strong></div>
+                        <div class="baseline-stat-item">Avg Views: <strong>${proj.baseline.avgViews}</strong></div>
+                        <div class="baseline-stat-item">Avg Engagement: <strong>${proj.baseline.avgEngagement}</strong></div>
+                    `;
+                }
+                baselineHTML = `
+                    <div class="baseline-box">
+                        <h4>Known Baseline Information</h4>
+                        <div class="baseline-stats">
+                            ${statsHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            let tagsHTML = proj.deliverables.map(d => `<span class="project-tag">${d}</span>`).join('');
+
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <div>
+                    <div class="project-meta-top">
+                        <span class="classification-badge">${proj.classification}</span>
+                        <span class="project-dates">${proj.dates}</span>
+                    </div>
+                    <h3>${proj.name}</h3>
+                    <div class="project-org">${proj.organization}</div>
+                    <p><strong>Role:</strong> ${proj.role}</p>
+                    <p>${proj.description}</p>
+                    ${baselineHTML}
+                    <div class="project-tags">${tagsHTML}</div>
+                </div>
+                <div style="font-size: 0.875rem; color: var(--color-olive); font-weight: 600; padding-top: 1rem; border-top: 1px solid var(--color-sand);">
+                    Platforms: ${proj.platforms.join(', ')}
+                </div>
+            `;
+            portfolioContainer.appendChild(card);
+        });
+
+        // Render Analytics Proof Visualisations from proofVisualisationData (Using purple palette from image reference)
+        const proofContainer = document.getElementById('proof-container');
+        proofVisualisationData.forEach((proof, index) => {
+            const card = document.createElement('div');
+            card.className = 'proof-card';
+            card.innerHTML = `
+                <div class="proof-header">
+                    <div class="proof-title-area">
+                        <span class="proof-category">${proof.category}</span>
+                        <h3>${proof.title}</h3>
+                    </div>
+                    <span class="proof-platform-badge">${proof.platform}</span>
+                </div>
+                <p class="proof-desc">${proof.description}</p>
+                <div class="analytics-dashboard-ui">
+                    <div class="analytics-metrics-grid">
+                        <div class="metric-box">
+                            <div class="label">Followers</div>
+                            <div class="value">${proof.metrics.followers}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="label">Reach / Views</div>
+                            <div class="value highlight">${proof.metrics.reach}</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="label">Interactions</div>
+                            <div class="value">${proof.metrics.interactions}</div>
+                        </div>
+                    </div>
+                    <div class="analytics-graphic-container">
+                        <div class="svg-ring-wrapper">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="svg-ring-bg" cx="50" cy="50" r="40"></circle>
+                                <circle class="svg-ring-progress" id="ring-${index}" cx="50" cy="50" r="40" style="stroke-dashoffset: 100;"></circle>
+                            </svg>
+                            <div class="svg-ring-text">${proof.metrics.primaryPercentage}</div>
+                        </div>
+                        <div class="trend-graph-mini">
+                            <svg viewBox="0 0 200 60">
+                                <path class="trend-line" id="line-${index}" d="M 0 50 Q 50 10, 100 30 T 200 10"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            `;
+            proofContainer.appendChild(card);
+        });
+
+        // Render Pricing Packages from pricingPackages
+        const pricingContainer = document.getElementById('pricing-container');
+        pricingPackages.forEach(pkg => {
+            let badgeHTML = pkg.badge ? `<div class="pricing-badge">${pkg.badge}</div>` : '';
+            let featuresHTML = pkg.deliverables.map(d => `<li>${d}</li>`).join('');
+            
+            const card = document.createElement('div');
+            card.className = `pricing-card ${pkg.isFeatured ? 'featured' : ''}`;
+            card.innerHTML = `
+                ${badgeHTML}
+                <div>
+                    <h3>${pkg.name}</h3>
+                    <p style="color: ${pkg.isFeatured ? 'rgba(250,248,245,0.8)' : 'var(--color-muted)'}; font-size: 0.9375rem; margin-top: 0.5rem;">${pkg.description}</p>
+                    <div class="pricing-price">${pkg.price} <span style="font-size: 1rem; font-family: var(--font-sans); font-weight: 500; color: ${pkg.isFeatured ? 'rgba(250,248,245,0.8)' : 'var(--color-muted)'};">${pkg.period}</span></div>
+                    <ul class="pricing-features">
+                        ${featuresHTML}
+                    </ul>
+                </div>
+                <a href="#contact" class="btn ${pkg.isFeatured ? 'btn-primary' : 'btn-secondary'}" style="margin-top: 2rem; ${pkg.isFeatured ? 'background-color: var(--color-red); color: var(--color-white);' : ''}">${pkg.cta}</a>
+            `;
+            pricingContainer.appendChild(card);
+        });
+
+        // Render Testimonials from testimonialData
+        const testimonialsContainer = document.getElementById('testimonials-container');
+        testimonialData.forEach(testi => {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+            card.innerHTML = `
+                <div>
+                    <div style="color: #E6A15C; font-size: 1.125rem; margin-bottom: 1rem;">★★★★★</div>
+                    <div class="testimonial-text">“${testi.quote}”</div>
+                </div>
+                <div class="testimonial-footer">
+                    <div class="testimonial-author">
+                        <h4>${testi.name}</h4>
+                        <p>${testi.role}</p>
+                    </div>
+                    <span class="source-badge">${testi.source}</span>
+                </div>
+            `;
+            testimonialsContainer.appendChild(card);
+        });
+
+        // IntersectionObserver for Scroll Animations (Proof Visualisations)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const rings = entry.target.querySelectorAll('.svg-ring-progress');
+                    const lines = entry.target.querySelectorAll('.trend-line');
+                    
+                    rings.forEach(ring => {
+                        ring.style.strokeDashoffset = '60';
+                    });
+                    
+                    lines.forEach(line => {
+                        line.style.strokeDashoffset = '0';
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.proof-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
